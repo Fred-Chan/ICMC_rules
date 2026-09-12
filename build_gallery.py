@@ -67,7 +67,6 @@ def card(tag, cn, season, theme, accent, note, poster, story, medal, awards):
         story_html = ('<p class="g-story-tip">官方页面未发布主题故事，本届任务：</p>'
                       + '<ul class="g-tasks">' + ''.join(f'<li>{H.escape(x)}</li>' for x in TASKS[tag]) + '</ul>')
     note_html = f'<p class="g-note">❄ {H.escape(note)}</p>' if note else ''
-    award_html = ''.join(f'<li>{H.escape(a)}</li>' for a in awards)
     return f'''
 <article class="gcard" style="--accent:{accent}">
   <div class="g-poster"><img src="{poster}" alt="{cn} {theme} 海报" loading="lazy"></div>
@@ -86,8 +85,6 @@ def card(tag, cn, season, theme, accent, note, poster, story, medal, awards):
       <div class="g-col">
         <h3 class="g-h"><span class="ic">🏅</span>奖牌样式</h3>
         <div class="g-medal"><img src="{medal}" alt="{cn}奖牌与证书" loading="lazy"></div>
-        <h3 class="g-h2">奖项设置</h3>
-        <ul class="g-awards">{award_html}</ul>
       </div>
     </div>
   </div>
@@ -134,19 +131,16 @@ def main():
              border:1px solid #f0dcb4; border-radius:8px; padding:6px 12px; display:inline-block; }}
   .g-cols {{ display:grid; grid-template-columns:1.15fr 1fr; gap:26px; margin-top:14px; }}
   @media (max-width:760px) {{ .g-cols {{ grid-template-columns:1fr; }} }}
+  .g-medal {{ border:1px solid #e9e6dd; border-radius:10px; overflow:hidden; background:#fafafa;
+              text-align:center; }}
+  .g-medal img {{ display:block; max-width:100%; height:auto; margin:0 auto; }}
   .g-h {{ font-size:15px; margin-bottom:8px; color:#3a372f; }}
   .g-h .ic {{ margin-right:4px; }}
-  .g-h2 {{ font-size:14px; margin:14px 0 6px; color:#3a372f; }}
   .g-story {{ font-size:14.5px; color:#44413a; margin:6px 0; text-align:justify; }}
   .g-story-tip {{ font-size:13.5px; color:#8a857a; margin:6px 0; }}
   .g-tasks {{ list-style:none; margin:4px 0 0 4px; }}
   .g-tasks li {{ font-size:14px; padding-left:16px; position:relative; margin:4px 0; }}
   .g-tasks li::before {{ content:"·"; position:absolute; left:4px; color:var(--accent); font-weight:700; }}
-  .g-medal {{ border:1px solid #e9e6dd; border-radius:10px; overflow:hidden; background:#fafafa; }}
-  .g-medal img {{ display:block; width:100%; height:auto; }}
-  .g-awards {{ list-style:none; margin:2px 0 0 4px; }}
-  .g-awards li {{ font-size:13.5px; padding-left:16px; position:relative; margin:3px 0; color:#44413a; }}
-  .g-awards li::before {{ content:"·"; position:absolute; left:4px; color:var(--accent); font-weight:700; }}
   footer {{ max-width:980px; margin:0 auto 60px; padding:0 20px; font-size:13px; color:#8a857a; }}
 </style>
 </head>
