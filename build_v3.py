@@ -34,7 +34,7 @@ META = [
     dict(tag="13", cn="第十三届", season="2023", theme="星际工厂大挑战",
          url="http://www.icmc100.com/newsinfo/5599566.html", pub="2023-03",
          doc="", accent="#b85450"),
-    dict(tag="14", cn="第十四届", season="2023 下半年", theme="巅峰挑战",
+    dict(tag="14", cn="第十四届", season="2023 下半年", theme="智慧城市大冒险",
          url="http://www.icmc100.com/newsinfo/6380953.html", pub="2023-09",
          doc="", accent="#7a5ca8"),
     dict(tag="15", cn="第十五届", season="2024 上半年", theme="宇航基地历险记",
@@ -505,7 +505,7 @@ def main():
 <body>
 <div class="top">
   <h1>ICMC 国际机器人创客大赛 · 第三届至第十九届任务规则</h1>
-  <p>内容与图片取自 ICMC 官网各届赛项发布页（www.icmc100.com），聚焦规则本身：任务背景、场地器材、比赛过程与计分。赛程时间表与报名联系方式等无关信息已略去。整理日期：2026-09-11。</p>
+  <p>内容与图片取自 ICMC 官网各届赛项发布页（www.icmc100.com），聚焦规则本身：任务背景、场地器材、比赛过程与计分。赛程时间表与报名联系方式等无关信息已略去。历届主题与奖牌样式见 <a href="vi" style="color:#2f7fbf">主题画廊 ↗</a>。整理日期：2026-09-11。</p>
 </div>
 <nav class="tabs">{tabs}</nav>
 <div class="filterbar"><span class="flabel">按组别筛选</span>{gbtns}</div>
