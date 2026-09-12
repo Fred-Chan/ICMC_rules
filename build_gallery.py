@@ -22,12 +22,6 @@ ED = [
     ("18", "第十八届", "2025 下半年", "超级港口大挑战",  "#2f7fbf", ""),
     ("19", "第十九届", "2026 上半年", "行星能源大时代",  "#c0405e", ""),
 ]
-TASKS = {  # 无官方主题故事届的任务一览（取自规则页任务标题）
-    "6": ["JR组：建造海岛互通桥", "机械组：奇妙的机械臂", "动力组：快速运送能量球", "智能组：智能矿石采集"],
-    "7": ["JR组：矿石大运输", "机械组：开启机械栏杆", "动力组：定点投放能量块", "智能组：智能包裹配送"],
-    "9": ["JR组：钓鱼小能手", "机械组：安全运送燃料球", "动力组：神奇管道探测器",
-          "感控组：远程遥控铲雪车", "智能组：轮胎搬运大挑战"],
-}
 
 def edition_seg(html, tag):
     i = html.find('id="e%s"' % tag)
@@ -51,21 +45,16 @@ def extract(html, tag):
     # 奖牌图：奖项设立卡片第一图
     medal = re.search(r'奖项设立</h4><figure><img src="([^"]+)"', seg)
     medal = medal.group(1) if medal else ''
-    # 奖项列表
-    awards = []
-    am = re.search(r'奖项设立</h4>([\s\S]*?)</div>', seg)
-    if am:
-        for m in re.finditer(r'<li>([^<]+)</li>|<p>([^<]+)</p>', am.group(1)):
-            txt = m.group(1) or m.group(2)
-            if '授予' in txt:
-                awards.append(txt)
-    return poster, story, medal, awards
+    # 各组别任务名：taskcard 标题（JR组3-4周岁：xxx）
+    tasks = re.findall(r'<h3 class="task"[^>]*>([^<]+)</h3>', seg)
+    return poster, story, medal, tasks
 
-def card(tag, cn, season, theme, accent, note, poster, story, medal, awards):
+def card(tag, cn, season, theme, accent, note, poster, story, medal, tasks):
+    # 任务名列表（各组别）
+    task_html = ''.join(f'<li>{H.escape(x)}</li>' for x in tasks)
+    task_list = f'<ul class="g-tasks">{task_html}</ul>' if task_html else ''
+    # 故事（无故事时只提示，任务列表单独展示）
     story_html = ''.join(f'<p class="g-story">{H.escape(p)}</p>' for p in story)
-    if not story_html and tag in TASKS:
-        story_html = ('<p class="g-story-tip">官方页面未发布主题故事，本届任务：</p>'
-                      + '<ul class="g-tasks">' + ''.join(f'<li>{H.escape(x)}</li>' for x in TASKS[tag]) + '</ul>')
     note_html = f'<p class="g-note">❄ {H.escape(note)}</p>' if note else ''
     return f'''
 <article class="gcard" style="--accent:{accent}">
@@ -87,6 +76,7 @@ def card(tag, cn, season, theme, accent, note, poster, story, medal, awards):
         <div class="g-medal"><img src="{medal}" alt="{cn}奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    {f'<h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3>{task_list}' if task_list else ''}
   </div>
 </article>'''
 
@@ -94,10 +84,10 @@ def main():
     html = open('index.html', encoding='utf-8').read()
     cards = []
     for tag, cn, season, theme, accent, note in ED:
-        poster, story, medal, awards = extract(html, tag)
-        assert poster and medal and awards, f'第{tag}届数据缺失: {poster} {medal} {len(awards)}'
-        cards.append(card(tag, cn, season, theme, accent, note, poster, story, medal, awards))
-        print(f'{tag} ✓ story={len(story)} awards={len(awards)}')
+        poster, story, medal, tasks = extract(html, tag)
+        assert poster and medal and tasks, f'第{tag}届数据缺失: {poster} {medal} {len(tasks)}'
+        cards.append(card(tag, cn, season, theme, accent, note, poster, story, medal, tasks))
+        print(f'{tag} ✓ story={len(story)} tasks={len(tasks)}')
     today = datetime.date.today().strftime('%Y-%m-%d')
     page = f'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -138,9 +128,12 @@ def main():
   .g-h .ic {{ margin-right:4px; }}
   .g-story {{ font-size:14.5px; color:#44413a; margin:6px 0; text-align:justify; }}
   .g-story-tip {{ font-size:13.5px; color:#8a857a; margin:6px 0; }}
-  .g-tasks {{ list-style:none; margin:4px 0 0 4px; }}
-  .g-tasks li {{ font-size:14px; padding-left:16px; position:relative; margin:4px 0; }}
+  .g-tasks {{ list-style:none; margin:2px 0 0; columns:2; column-gap:26px; }}
+  .g-tasks li {{ font-size:14px; padding-left:16px; position:relative; margin:4px 0;
+                 break-inside:avoid; }}
   .g-tasks li::before {{ content:"·"; position:absolute; left:4px; color:var(--accent); font-weight:700; }}
+  .g-h-tasks {{ margin-top:16px; }}
+  @media (max-width:560px) {{ .g-tasks {{ columns:1; }} }}
   footer {{ max-width:980px; margin:0 auto 60px; padding:0 20px; font-size:13px; color:#8a857a; }}
 </style>
 </head>

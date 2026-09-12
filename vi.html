@@ -37,9 +37,12 @@
   .g-h .ic { margin-right:4px; }
   .g-story { font-size:14.5px; color:#44413a; margin:6px 0; text-align:justify; }
   .g-story-tip { font-size:13.5px; color:#8a857a; margin:6px 0; }
-  .g-tasks { list-style:none; margin:4px 0 0 4px; }
-  .g-tasks li { font-size:14px; padding-left:16px; position:relative; margin:4px 0; }
+  .g-tasks { list-style:none; margin:2px 0 0; columns:2; column-gap:26px; }
+  .g-tasks li { font-size:14px; padding-left:16px; position:relative; margin:4px 0;
+                 break-inside:avoid; }
   .g-tasks li::before { content:"·"; position:absolute; left:4px; color:var(--accent); font-weight:700; }
+  .g-h-tasks { margin-top:16px; }
+  @media (max-width:560px) { .g-tasks { columns:1; } }
   footer { max-width:980px; margin:0 auto 60px; padding:0 20px; font-size:13px; color:#8a857a; }
 </style>
 </head>
@@ -68,6 +71,7 @@
         <div class="g-medal"><img src="images/3/16.png" alt="第三届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：废料搬运任务</li><li>机械组5-6周岁：风机紧急维修任务</li><li>动力组6-7周岁：全地形勘探车任务</li><li>智能组7-12周岁：矿石智能运输任务</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#8d8d93">
@@ -89,6 +93,7 @@
         <div class="g-medal"><img src="images/4/18.jpg" alt="第四届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：神奇建筑师任务</li><li>机械组5-6周岁：齿轮大师任务</li><li>动力组6-7周岁：威力拖车</li><li>智能组7-12周岁：超级领航员任务</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#3a8fa0">
@@ -110,6 +115,7 @@
         <div class="g-medal"><img src="images/5/14.jpg" alt="第五届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：快速搭建勘探梯</li><li>机械组5-6周岁：紧急维修安全阀</li><li>动力组6-7周岁：神奇机械抓手</li><li>智能组7-12周岁：智能投送能量棒</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#5a9e6f">
@@ -124,13 +130,14 @@
     <div class="g-cols">
       <div class="g-col">
         <h3 class="g-h"><span class="ic">📖</span>主题故事</h3>
-        <p class="g-story-tip">官方页面未发布主题故事，本届任务：</p><ul class="g-tasks"><li>JR组：建造海岛互通桥</li><li>机械组：奇妙的机械臂</li><li>动力组：快速运送能量球</li><li>智能组：智能矿石采集</li></ul>
+        <p class="g-story-tip">官方页面未发布主题故事。</p>
       </div>
       <div class="g-col">
         <h3 class="g-h"><span class="ic">🏅</span>奖牌样式</h3>
         <div class="g-medal"><img src="images/6/14.jpg" alt="第六届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：建造海岛互通桥</li><li>机械组5-6周岁：奇妙的机械臂</li><li>动力组6-7周岁：快速运送能量球</li><li>智能组7-12周岁：智能矿石采集</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#a05a5a">
@@ -145,13 +152,14 @@
     <div class="g-cols">
       <div class="g-col">
         <h3 class="g-h"><span class="ic">📖</span>主题故事</h3>
-        <p class="g-story-tip">官方页面未发布主题故事，本届任务：</p><ul class="g-tasks"><li>JR组：矿石大运输</li><li>机械组：开启机械栏杆</li><li>动力组：定点投放能量块</li><li>智能组：智能包裹配送</li></ul>
+        <p class="g-story-tip">官方页面未发布主题故事。</p>
       </div>
       <div class="g-col">
         <h3 class="g-h"><span class="ic">🏅</span>奖牌样式</h3>
         <div class="g-medal"><img src="images/7/15.jpg" alt="第七届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：矿石大运输</li><li>机械组5-6周岁：开启机械栏杆</li><li>动力组6-7周岁：定点投放能量块</li><li>智能组7-12周岁：智能包裹配送</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#4a90b8">
@@ -166,13 +174,14 @@
     <div class="g-cols">
       <div class="g-col">
         <h3 class="g-h"><span class="ic">📖</span>主题故事</h3>
-        <p class="g-story-tip">官方页面未发布主题故事，本届任务：</p><ul class="g-tasks"><li>JR组：钓鱼小能手</li><li>机械组：安全运送燃料球</li><li>动力组：神奇管道探测器</li><li>感控组：远程遥控铲雪车</li><li>智能组：轮胎搬运大挑战</li></ul>
+        <p class="g-story-tip">官方页面未发布主题故事。</p>
       </div>
       <div class="g-col">
         <h3 class="g-h"><span class="ic">🏅</span>奖牌样式</h3>
         <div class="g-medal"><img src="images/9/16.jpg" alt="第九届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：钓鱼小能手</li><li>机械组5-6周岁：安全运送燃料球</li><li>动力组6-7周岁：神奇管道探测器</li><li>感控组7-8周岁：远程遥控铲雪车</li><li>智能组8-14周岁：轮胎搬运大挑战</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#946e3c">
@@ -194,6 +203,7 @@
         <div class="g-medal"><img src="images/10/22.jpg" alt="第十届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：矿球输送道</li><li>机械组5-6周岁：维修反应炉</li><li>动力组6-7周岁：超级废料投送机</li><li>感控组7-8周岁：自动避障巡逻车</li><li>智能组8-14周岁：智能采矿机器人</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#6a67a8">
@@ -215,6 +225,7 @@
         <div class="g-medal"><img src="images/11/23.jpg" alt="第十一届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：巧妙分拣废料球</li><li>机械组5-6周岁：机械传送工具包</li><li>动力组6-7周岁：紧急维修升降机</li><li>感控组7-8周岁：自动燃料投送车</li><li>智能组8-14周岁：智能行李机器人</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#3e8a7e">
@@ -236,6 +247,7 @@
         <div class="g-medal"><img src="images/12/21.jpg" alt="第十二届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：架设矿山交通桥</li><li>机械组5-6周岁：抢修雷达探测器</li><li>动力组6-7周岁：神奇电力工程车</li><li>感控组7-8周岁：自动更换导航信标</li><li>智能组8-14周岁：智能维修发电机</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#b85450">
@@ -257,6 +269,7 @@
         <div class="g-medal"><img src="images/13/24.jpg" alt="第十三届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：巧妙填充燃料块</li><li>机械组5-6周岁：快速传送原料桶</li><li>动力组6-7周岁：神奇行走搬运器</li><li>感控组7-8周岁：自动物流装载机</li><li>智能组8-14周岁：智能产品收集车</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#7a5ca8">
@@ -278,6 +291,7 @@
         <div class="g-medal"><img src="images/14/27.png" alt="第十四届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：神奇废料收集车</li><li>机械组5-6周岁：势能废料投掷机</li><li>动力组6-7周岁：动物园超级巡逻车</li><li>感控组7-8周岁：自动线缆架设车</li><li>智能组8-14周岁：智能车盘维护机</li><li>编程组5-14周岁：超级程序员</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#e8734a">
@@ -299,6 +313,7 @@
         <div class="g-medal"><img src="images/15/40.jpg" alt="第十五届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：货物运输小能手</li><li>机械组5-6周岁：维修飞船牵引机</li><li>动力组6-7周岁：高能废料投掷车</li><li>感控组7-8周岁：自动货物输送器</li><li>智能组8-14周岁：能量环智能装载机</li><li>编程组5-14周岁：超级程序员</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#7c5cb0">
@@ -320,6 +335,7 @@
         <div class="g-medal"><img src="images/16/39.jpg" alt="第十六届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-4周岁：超级矿石滑道</li><li>机械组5-6周岁：神奇能量块压铸机</li><li>动力组6-7周岁：循环反应堆送料机</li><li>感控组7-8周岁：自动转运盘处理车</li><li>智能组8-14周岁：智能信标抢修机</li><li>编程组5-14周岁：超级程序员</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#3a9d6e">
@@ -341,6 +357,7 @@
         <div class="g-medal"><img src="images/17/36.jpg" alt="第十七届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-5周岁：奇幻蘑菇大丰收</li><li>机械组5-6周岁：紧急维修喷淋器</li><li>动力组6-7周岁：超级果实运输车</li><li>感控组7-8周岁：神奇牧羊机器人</li><li>智能组8-14周岁：智能植物养护车</li><li>编程组5-14周岁：超级程序员</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#2f7fbf">
@@ -362,6 +379,7 @@
         <div class="g-medal"><img src="images/18/36.jpg" alt="第十八届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-5周岁：港口搬运小能手</li><li>机械组5-6周岁：神奇机械龙门吊</li><li>动力组6-7周岁：燃料块自动投送车</li><li>感控组7-8周岁：航标智能回收车</li><li>智能组8-14周岁：超级车库机器人</li><li>编程组5-14周岁：超级程序员</li></ul>
   </div>
 </article>
 <article class="gcard" style="--accent:#c0405e">
@@ -383,6 +401,7 @@
         <div class="g-medal"><img src="images/19/31.png" alt="第十九届奖牌与证书" loading="lazy"></div>
       </div>
     </div>
+    <h3 class="g-h g-h-tasks"><span class="ic">🤖</span>各组别任务</h3><ul class="g-tasks"><li>JR组3-5周岁：加工聚变能量环</li><li>机械组5-6周岁：快速开启应急门</li><li>动力组6-7周岁：井架超级回收车</li><li>感控组7-8周岁：自动安装风电机</li><li>智能组8-14周岁：反应堆智能机器人</li><li>编程组5-14周岁：超级程序员</li></ul>
   </div>
 </article></div>
 <footer>来源：ICMC 官网（www.icmc100.com）。主题名称以官方海报为准；官方未发布主题故事的届次以任务概览代替。</footer>
