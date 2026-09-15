@@ -53,6 +53,9 @@ META = [
     dict(tag="19", cn="第十九届", season="2026 上半年", theme="行星能源大时代",
          url="http://www.icmc100.com/newsinfo/8987054.html", pub="2026-03-10",
          doc="http://cs.icmc100.com/maker19.zip", accent="#c0405e"),
+    dict(tag="20", cn="第二十届", season="2026 下半年", theme="轨道空间站大冒险",
+         url="https://mp.weixin.qq.com/s/MKSQ0jiPpbsYspJ1c5Pcug", pub="2026-09-15",
+         doc="http://cs.icmc100.com/maker20.zip", accent="#4a6fa5"),
 ]
 
 LABELS = ['任务背景','参赛对象','材料范围','场地器材','赛场准备','比赛过程','比赛分值',
@@ -182,6 +185,9 @@ def classify(unit, ctx, imgs):
         return ('LBL', name, '')
     # 届次项目标题
     if re.match(r'^\d{4}第[一二三四五六七八九十]+届比赛项目$', t) or KICK_RE2.match(t):
+        return ('KICK', t, '')
+    # 赛季主题标题（第二十届公众号格式）
+    if t.startswith('赛季主题'):
         return ('KICK', t, '')
     # 无冒号的独立小标签
     if t in LABELS:
@@ -395,12 +401,12 @@ def main():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ICMC 第3–19届任务规则 · 带图版</title>
+<title>ICMC 第3–20届任务规则 · 带图版</title>
 <style>
   * {{ margin:0; padding:0; box-sizing:border-box; }}
-  html {{ scroll-behavior:smooth; }}
+  html {{ scroll-behavior:smooth; overflow-x:clip; }}
   body {{ font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-         background:#f6f6f4; color:#26241f; line-height:1.75; }}
+         background:#f6f6f4; color:#26241f; line-height:1.75; overflow-x:clip; }}
   .top {{ max-width:880px; margin:0 auto; padding:48px 20px 8px; }}
   .top h1 {{ font-size:26px; letter-spacing:1px; }}
   .top p {{ color:#6b675c; font-size:14px; margin-top:10px; }}
@@ -504,15 +510,15 @@ def main():
 </head>
 <body>
 <div class="top">
-  <h1>ICMC 国际机器人创客大赛 · 第三届至第十九届任务规则</h1>
-  <p>内容与图片取自 ICMC 官网各届赛项发布页（www.icmc100.com），聚焦规则本身：任务背景、场地器材、比赛过程与计分。赛程时间表与报名联系方式等无关信息已略去。历届主题与奖牌样式见 <a href="vi" style="color:#2f7fbf">主题画廊 ↗</a>。整理日期：2026-09-11。</p>
+  <h1>ICMC 国际机器人创客大赛 · 第三届至第二十届任务规则</h1>
+  <p>内容与图片取自 ICMC 官网各届赛项发布页（www.icmc100.com）及官方微信公众号（第二十届），聚焦规则本身：任务背景、场地器材、比赛过程与计分。赛程时间表与报名联系方式等无关信息已略去。历届主题与奖牌样式见 <a href="vi" style="color:#2f7fbf">主题画廊 ↗</a>。整理日期：2026-09-15。</p>
 </div>
 <nav class="tabs">{tabs}</nav>
 <div class="filterbar"><span class="flabel">按组别筛选</span>{gbtns}</div>
 {''.join(allsec)}
 <div class="gresults" id="gresults"></div>
 <footer>
-  <p>来源：ICMC 官网「最新动态」栏目，各届规则页链接见每届标题卡。图片已本地化（images/ 目录），任务动画为官网原 GIF。</p>
+  <p>来源：ICMC 官网「最新动态」栏目及官方微信公众号，各届规则页链接见每届标题卡。图片已本地化（images/ 目录），任务动画为官方原 GIF。</p>
 </footer>
 <a class="totop" href="#">↑</a>
 <script>

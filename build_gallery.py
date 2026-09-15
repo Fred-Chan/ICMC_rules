@@ -21,6 +21,7 @@ ED = [
     ("17", "第十七届", "2025 上半年", "星际农场奇遇记",  "#3a9d6e", ""),
     ("18", "第十八届", "2025 下半年", "超级港口大挑战",  "#2f7fbf", ""),
     ("19", "第十九届", "2026 上半年", "行星能源大时代",  "#c0405e", ""),
+    ("20", "第二十届", "2026 下半年", "轨道空间站大冒险",  "#4a6fa5", ""),
 ]
 
 def edition_seg(html, tag):
@@ -94,7 +95,7 @@ def main():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ICMC 历届主题画廊 · 第3–19届</title>
+<title>ICMC 历届主题画廊 · 第3–20届</title>
 <style>
   * {{ margin:0; padding:0; box-sizing:border-box; }}
   html {{ scroll-behavior:smooth; }}
@@ -140,10 +141,10 @@ def main():
 <body>
 <div class="top">
   <h1>ICMC 历届主题画廊 <a href="/">« 返回规则页</a></h1>
-  <p>第 3–19 届主题名称、主题故事与奖牌样式一览。图片取自 ICMC 官网各届发布页。整理日期：{today}</p>
+  <p>第 3–20 届主题名称、主题故事与奖牌样式一览。图片取自 ICMC 官网及官方微信公众号各届发布页。整理日期：{today}</p>
 </div>
 <div class="gal">{''.join(cards)}</div>
-<footer>来源：ICMC 官网（www.icmc100.com）。主题名称以官方海报为准；官方未发布主题故事的届次以任务概览代替。</footer>
+<footer>来源：ICMC 官网（www.icmc100.com）及官方微信公众号。主题名称以官方海报为准；官方未发布主题故事的届次以任务概览代替。</footer>
 </body>
 </html>'''
     open('vi.html', 'w', encoding='utf-8').write(page)
